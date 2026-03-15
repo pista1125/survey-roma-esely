@@ -58,7 +58,7 @@ const SECTIONS = [
   {
     title: "6. Kontrollkérdés",
     questions: [
-      { key: "q19", type: "likert" as const, text: "Annak ellenőrzésére, hogy figyelmesen olvassa a kérdéseket, kérjük ennél az állításnál válassza a 4-es értéket.\n\n„Figyelmesen olvasom a kérdőív kérdéseit."" },
+      { key: "q19", type: "likert" as const, text: "Annak ellenőrzésére, hogy figyelmesen olvassa a kérdéseket, kérjük ennél az állításnál válassza a 4-es értéket.\n\nFigyelmesen olvasom a kérdőív kérdéseit." },
     ],
   },
   {
