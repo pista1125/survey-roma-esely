@@ -14,7 +14,111 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      survey_responses: {
+        Row: {
+          age_group: string | null
+          created_at: string
+          email: string | null
+          gender: string | null
+          hiring_decisions_count: string | null
+          hiring_involvement: string | null
+          id: string
+          industry: string | null
+          org_ownership: string | null
+          org_size: string | null
+          position: string | null
+          q1: number | null
+          q10: number | null
+          q11: number | null
+          q12: number | null
+          q13: number | null
+          q14: number | null
+          q15: number | null
+          q16: number | null
+          q17: number | null
+          q18: number | null
+          q19: number | null
+          q2: number | null
+          q20: string | null
+          q3: number | null
+          q4: number | null
+          q5: string | null
+          q6: number | null
+          q7: string | null
+          q8: number | null
+          q9: number | null
+          region: string | null
+        }
+        Insert: {
+          age_group?: string | null
+          created_at?: string
+          email?: string | null
+          gender?: string | null
+          hiring_decisions_count?: string | null
+          hiring_involvement?: string | null
+          id?: string
+          industry?: string | null
+          org_ownership?: string | null
+          org_size?: string | null
+          position?: string | null
+          q1?: number | null
+          q10?: number | null
+          q11?: number | null
+          q12?: number | null
+          q13?: number | null
+          q14?: number | null
+          q15?: number | null
+          q16?: number | null
+          q17?: number | null
+          q18?: number | null
+          q19?: number | null
+          q2?: number | null
+          q20?: string | null
+          q3?: number | null
+          q4?: number | null
+          q5?: string | null
+          q6?: number | null
+          q7?: string | null
+          q8?: number | null
+          q9?: number | null
+          region?: string | null
+        }
+        Update: {
+          age_group?: string | null
+          created_at?: string
+          email?: string | null
+          gender?: string | null
+          hiring_decisions_count?: string | null
+          hiring_involvement?: string | null
+          id?: string
+          industry?: string | null
+          org_ownership?: string | null
+          org_size?: string | null
+          position?: string | null
+          q1?: number | null
+          q10?: number | null
+          q11?: number | null
+          q12?: number | null
+          q13?: number | null
+          q14?: number | null
+          q15?: number | null
+          q16?: number | null
+          q17?: number | null
+          q18?: number | null
+          q19?: number | null
+          q2?: number | null
+          q20?: string | null
+          q3?: number | null
+          q4?: number | null
+          q5?: string | null
+          q6?: number | null
+          q7?: string | null
+          q8?: number | null
+          q9?: number | null
+          region?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
