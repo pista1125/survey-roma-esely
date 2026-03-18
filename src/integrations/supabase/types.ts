@@ -1,4 +1,4 @@
-export type Json =
+﻿export type Json =
   | string
   | number
   | boolean
@@ -10,112 +10,139 @@ export type Database = {
   // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
-    PostgrestVersion: "14.4"
+    PostgrestVersion: "14.1"
   }
   public: {
     Tables: {
       survey_responses: {
         Row: {
-          age_group: string | null
+          a1: number | null
+          a2: number | null
+          a3: number | null
+          a4: number | null
+          a5: number | null
+          b1: number | null
+          b2: number | null
+          b3: number | null
+          b4: number | null
+          b5: number | null
+          b6: number | null
+          company_form: string | null
+          county: string | null
           created_at: string
+          effective_step: string | null
           email: string | null
+          emp_count: string | null
+          future_outlook: string | null
           gender: string | null
-          hiring_decisions_count: string | null
-          hiring_involvement: string | null
+          hiring_freq: string | null
           id: string
-          industry: string | null
-          org_ownership: string | null
-          org_size: string | null
+          ownership: string | null
+          p1: number | null
+          p10: number | null
+          p2: number | null
+          p3: number | null
+          p4: number | null
+          p5: number | null
+          p6: number | null
+          p7: number | null
+          p8: number | null
+          p9: number | null
           position: string | null
-          q1: number | null
-          q10: number | null
-          q11: number | null
+          position_other: string | null
+          q11: string | null
           q12: number | null
-          q13: number | null
-          q14: number | null
-          q15: number | null
-          q16: number | null
-          q17: number | null
-          q18: number | null
-          q19: number | null
-          q2: number | null
-          q20: string | null
-          q3: number | null
-          q4: number | null
-          q5: string | null
-          q6: number | null
-          q7: string | null
-          q8: number | null
+          q13: string | null
+          q14: string | null
+          q15: string | null
           q9: number | null
-          region: string | null
+          sector: string | null
         }
         Insert: {
-          age_group?: string | null
+          a1?: number | null
+          a2?: number | null
+          a3?: number | null
+          a4?: number | null
+          a5?: number | null
+          b1?: number | null
+          b2?: number | null
+          b3?: number | null
+          b4?: number | null
+          b5?: number | null
+          b6?: number | null
+          company_form?: string | null
+          county?: string | null
           created_at?: string
+          effective_step?: string | null
           email?: string | null
+          emp_count?: string | null
+          future_outlook?: string | null
           gender?: string | null
-          hiring_decisions_count?: string | null
-          hiring_involvement?: string | null
+          hiring_freq?: string | null
           id?: string
-          industry?: string | null
-          org_ownership?: string | null
-          org_size?: string | null
+          ownership?: string | null
+          p1?: number | null
+          p10?: number | null
+          p2?: number | null
+          p3?: number | null
+          p4?: number | null
+          p5?: number | null
+          p6?: number | null
+          p7?: number | null
+          p8?: number | null
+          p9?: number | null
           position?: string | null
-          q1?: number | null
-          q10?: number | null
-          q11?: number | null
+          position_other?: string | null
+          q11?: string | null
           q12?: number | null
-          q13?: number | null
-          q14?: number | null
-          q15?: number | null
-          q16?: number | null
-          q17?: number | null
-          q18?: number | null
-          q19?: number | null
-          q2?: number | null
-          q20?: string | null
-          q3?: number | null
-          q4?: number | null
-          q5?: string | null
-          q6?: number | null
-          q7?: string | null
-          q8?: number | null
+          q13?: string | null
+          q14?: string | null
+          q15?: string | null
           q9?: number | null
-          region?: string | null
+          sector?: string | null
         }
         Update: {
-          age_group?: string | null
+          a1?: number | null
+          a2?: number | null
+          a3?: number | null
+          a4?: number | null
+          a5?: number | null
+          b1?: number | null
+          b2?: number | null
+          b3?: number | null
+          b4?: number | null
+          b5?: number | null
+          b6?: number | null
+          company_form?: string | null
+          county?: string | null
           created_at?: string
+          effective_step?: string | null
           email?: string | null
+          emp_count?: string | null
+          future_outlook?: string | null
           gender?: string | null
-          hiring_decisions_count?: string | null
-          hiring_involvement?: string | null
+          hiring_freq?: string | null
           id?: string
-          industry?: string | null
-          org_ownership?: string | null
-          org_size?: string | null
+          ownership?: string | null
+          p1?: number | null
+          p10?: number | null
+          p2?: number | null
+          p3?: number | null
+          p4?: number | null
+          p5?: number | null
+          p6?: number | null
+          p7?: number | null
+          p8?: number | null
+          p9?: number | null
           position?: string | null
-          q1?: number | null
-          q10?: number | null
-          q11?: number | null
+          position_other?: string | null
+          q11?: string | null
           q12?: number | null
-          q13?: number | null
-          q14?: number | null
-          q15?: number | null
-          q16?: number | null
-          q17?: number | null
-          q18?: number | null
-          q19?: number | null
-          q2?: number | null
-          q20?: string | null
-          q3?: number | null
-          q4?: number | null
-          q5?: string | null
-          q6?: number | null
-          q7?: string | null
-          q8?: number | null
+          q13?: string | null
+          q14?: string | null
+          q15?: string | null
           q9?: number | null
-          region?: string | null
+          sector?: string | null
         }
         Relationships: []
       }

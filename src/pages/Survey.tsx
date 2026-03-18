@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -191,6 +191,10 @@ const Survey = () => {
   const [data, setData] = useState<SurveyData>({});
   const [submitting, setSubmitting] = useState(false);
   const navigate = useNavigate();
+ 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentSection]);
 
   const totalSections = SECTIONS.length;
   const progress = ((currentSection + 1) / totalSections) * 100;
