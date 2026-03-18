@@ -6,43 +6,56 @@ import { Download, LogIn, LogOut, RefreshCw } from "lucide-react";
 import { toast } from "sonner";
 
 const QUESTION_LABELS: Record<string, string> = {
-  q1: "Roma munkaerőpiaci hátrányok valós probléma",
-  q2: "Munkáltatók aktív szerepe",
-  q3: "Roma származás nem releváns",
-  q4: "Munkaerőpiac igazságos",
-  q5: "Találkozott roma munkavállalóval",
-  q6: "Roma munkavállalók megbízhatóak",
-  q7: "Szervezetben dolgoznak romák",
-  q8: "Kiválasztási folyamatok alkalmasak",
-  q9: "Oktatási rendszer fő ok",
-  q10: "Munkáltatói előítéletek szerepe",
-  q11: "Készségek hiánya nehezíti",
-  q12: "Társadalmi vs vállalati felelősség",
-  q13: "Nyitottság roma toborzásra",
-  q14: "Előítéletmentes képzés hasznos",
-  q15: "Üzleti cél lehet",
-  q16: "Ügyfélkapcsolati pozíció kockázat",
-  q17: "Vezetői pozíció kockázat",
-  q18: "Csapat reakció",
-  q19: "Kontrollkérdés (4)",
-  q20: "10 év prognózis",
-  age_group: "Életkor",
-  gender: "Nem",
-  region: "Régió",
+  gender: "Neme",
+  company_form: "Vállalkozási forma",
+  county: "Vármegye",
   position: "Beosztás",
-  hiring_involvement: "Felvételi részvétel",
-  hiring_decisions_count: "Felvételi döntések száma",
-  org_size: "Szervezet mérete",
-  industry: "Iparág",
-  org_ownership: "Tulajdonosi háttér",
+  position_other: "Beosztás (egyéb)",
+  emp_count: "Létszám",
+  sector: "Szektor",
+  ownership: "Tulajdon",
+  hiring_freq: "Felvételi gyakoriság",
+  q9: "9. Objektív szempontok",
+  q11: "11. Sokszínűségi kezdeményezés",
+  q12: "12. Nyitottság hátrányos helyzetűekre",
+  q13: "13. További lépések szükségessége",
+  q14: "14. Roma jelentkező tapasztalat",
+  q15: "15. Jelenlegi roma munkavállaló",
+  p1: "P1: Hátrányok valósak",
+  p2: "P2: Munkáltatói felelősség",
+  p3: "P3: Előrelépések történtek",
+  p4: "P4: Álláskeresési nehézség",
+  p5: "P5: Diszkrimináció csökkentése",
+  p6: "P6: Nyitott munkáltatók",
+  p7: "P7: Esélyegyenlőség előrelépésben",
+  p8: "P8: Társadalmi/gazdasági fontosság",
+  p9: "P9: Befogadás integrációhoz",
+  p10: "P10: Megbízhatóság",
+  b1: "B1: Végzettség hiánya",
+  b2: "B2: Munkáltatói előítéletek",
+  b3: "B3: Társadalmi tényezők",
+  b4: "B4: Állami feladat",
+  b5: "B5: Célzott támogatás",
+  b6: "B6: Egységes megközelítés",
+  a1: "A1: Tudatos toborzás",
+  a2: "A2: Vezetői képzés",
+  a3: "A3: Vállalati célok",
+  a4: "A4: Befogadó környezet",
+  a5: "A5: Belső kommunikáció",
+  future_outlook: "19. 10 éves várakozás",
+  effective_step: "20. Leghatékonyabb lépés",
   email: "E-mail",
-  created_at: "Kitöltés időpontja",
+  created_at: "Dátum",
 };
 
 const CSV_COLUMNS = [
   "id", "created_at", "email",
-  "q1","q2","q3","q4","q5","q6","q7","q8","q9","q10","q11","q12","q13","q14","q15","q16","q17","q18","q19","q20",
-  "age_group","gender","region","position","hiring_involvement","hiring_decisions_count","org_size","industry","org_ownership",
+  "gender", "company_form", "county", "position", "position_other", "emp_count", "sector", "ownership", "hiring_freq",
+  "q9", "q11", "q12", "q13", "q14", "q15",
+  "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10",
+  "b1", "b2", "b3", "b4", "b5", "b6",
+  "a1", "a2", "a3", "a4", "a5",
+  "future_outlook", "effective_step"
 ];
 
 const Admin = () => {
@@ -158,9 +171,9 @@ const Admin = () => {
                   <th className="text-left p-3 font-medium text-muted-foreground whitespace-nowrap">#</th>
                   <th className="text-left p-3 font-medium text-muted-foreground whitespace-nowrap">Dátum</th>
                   <th className="text-left p-3 font-medium text-muted-foreground whitespace-nowrap">E-mail</th>
-                  {Array.from({ length: 20 }, (_, i) => (
-                    <th key={i} className="text-left p-3 font-medium text-muted-foreground whitespace-nowrap">
-                      K{i + 1}
+                  {CSV_COLUMNS.filter(c => !["id", "created_at", "email"].includes(c)).map((col) => (
+                    <th key={col} className="text-left p-3 font-medium text-muted-foreground whitespace-nowrap">
+                      {QUESTION_LABELS[col] || col}
                     </th>
                   ))}
                 </tr>
@@ -171,8 +184,10 @@ const Admin = () => {
                     <td className="p-3 text-muted-foreground">{idx + 1}</td>
                     <td className="p-3 whitespace-nowrap">{new Date(r.created_at).toLocaleDateString("hu-HU")}</td>
                     <td className="p-3">{r.email || "–"}</td>
-                    {Array.from({ length: 20 }, (_, i) => (
-                      <td key={i} className="p-3">{r[`q${i + 1}`] ?? "–"}</td>
+                    {CSV_COLUMNS.filter(c => !["id", "created_at", "email"].includes(c)).map((col) => (
+                      <td key={col} className="p-3 max-w-[200px] truncate" title={String(r[col] || "")}>
+                        {r[col] ?? "–"}
+                      </td>
                     ))}
                   </tr>
                 ))}
