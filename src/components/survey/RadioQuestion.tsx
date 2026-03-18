@@ -17,7 +17,10 @@ export const RadioQuestion = ({
   otherValue, 
   onOtherChange 
 }: RadioQuestionProps) => {
-  const isOtherSelected = showOther && value === options[options.length - 1];
+  const isOtherSelected = showOther && (
+    value === options[options.length - 1] || 
+    value?.toLowerCase().includes("egyéb")
+  );
 
   return (
     <div className="space-y-3">

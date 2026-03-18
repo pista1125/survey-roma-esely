@@ -217,8 +217,11 @@ const Survey = () => {
       toast.success("Köszönjük a kitöltést!");
       navigate("/thank-you");
     } catch (err: any) {
-      toast.error("Hiba történt", { description: err.message });
-      console.error(err);
+      console.error("Supabase Error Details:", err);
+      const detailedError = err.details || err.hint || err.message || "Ismeretlen hiba";
+      toast.error("Hiba történt a mentés során", { 
+        description: `Részletek: ${detailedError}`
+      });
     } finally {
       setSubmitting(false);
     }
